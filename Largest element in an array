@@ -1,0 +1,62 @@
+Problem statement:
+Given an array ‘arr’ of size ‘n’ find the largest element in the array.
+Example:
+Input: 'n' = 5, 'arr' = [1, 2, 3, 4, 5]
+Output: 5
+Explanation: From the array {1, 2, 3, 4, 5}, the largest element is 5.
+Detailed explanation ( Input/output format, Notes, Images )
+Sample input 1:
+6
+4 7 8 6 7 6 
+Sample output 1:
+8
+Explanation of sample input 1:
+The answer is 8.
+From {4 7 8 6 7 6}, 8 is the largest element.
+Sample input 2:
+8
+5 9 3 4 8 4 3 10 
+Sample output 2:
+10
+Expected Time Complexity:
+O(n), Where ‘n’ is the size of an input array ‘arr’.
+Constraints :
+1 <= 'n' <= 10^5
+1 <= 'arr[i]' <= 10^9
+Time Limit: 1 sec
+
+SOLUTION:
+1]Brute force method:
+    --->Sorting and Solving the problem:
+        code(c++):
+#include <iostream>
+#include <algorithm>
+using namespace std;
+int main() {
+    int n;
+    cin >> n;
+    int arr[n];
+    for (int i = 0; i < n; i++) cin >> arr[i];
+    sort(arr, arr + n);   // sort in ascending order(sort is a function built in function in c++,from <algorithm> header)
+    cout << arr[n-1];    //largest element will be at the end after we sort it,so we print arr[n-1]
+    return 0;
+}
+important:
+⏱ Time Complexity = O(n²)
+🗂 Space Complexity = O(1)
+
+2]Better solution:(code 360-codeninjas)
+#include <bits/stdc++.h> 
+int largestElement(vector<int> &arr, int n) {
+    int largest=arr[0];
+    for(int i=0;i<n;i++){
+        if(arr[i]>largest){
+            largest=arr[i];
+        }
+    }
+    return largest;
+}
+important:
+⏱ Time Complexity = O(n)
+🗂 Space Complexity = O(1)
+
